@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 import numpy as np
+import time
 
 ##############################
 ###   Problem definiton    ###
 ##############################
 
 #Define start state
-s_row1=[1,0,3]
-s_row2=[4,2,6]
-s_row3=[7,5,8]
+s_row1=[4,1,3]
+s_row2=[7,2,6]
+s_row3=[5,0,8]
 start = np.array([s_row1,s_row2,s_row3])
 #Define Goal state
 g_row1=[1,2,3]
@@ -80,14 +81,17 @@ def successor(node):
 #based on Psuedo code from AI script
 
 def bfs(node_list,goal):
-    
+    global f_c
+    global n_c
     new_nodes=np.array([])
     #depth=depth+1
     for i in range(len(node_list)):
         compare=node_list[i]== goal
         if compare.all()==True:
-            print('Goal state reached')
-            print(node_list[i])
+            print('Goal state reached:\n{}'.format(node_list[i]))
+            print('Solution found at depth {}'.format(f_c))
+            print('Total nodes generated {}'.format(n_c))
+            print('Time taken to solve: {} sec'.format(time.clock()-s_t))
             quit() #quit program when solution found, otherwise there will be endless loop
             
         #If soln is not found generate all successor nodes again
@@ -96,24 +100,24 @@ def bfs(node_list,goal):
         #Append without axis definiton will give flattened array. So we need to reshape.
         new_nodes=new_nodes.reshape(len(new_nodes)/9,3,3)
         
+        
         i=i+1
     
+    n_c=n_c+len(new_nodes)
     #Will tell how many nodes are generated in each depth
-    print(len(new_nodes))
+    #print(len(new_nodes))
     
     if (new_nodes.size!=0) == True:
+        f_c=f_c+1 #Calculates to what depth we have expanded
         bfs(new_nodes,goal)
         
     else:
         print('No solution found')
 
+f_c=1 #Intializing depth counting variable
+n_c=0 #Intializing node counting variable
 
 #call main function with defined problem
+s_t=time.clock()
 bfs(node_list,goal)
 
-############################################################################################
-##Few tweaks to be done
-
-#Solution is on what depth? (check how many times a func is called)
-#Total how many nodes generated (on each level)?
-#Time taken to solve the problem?
