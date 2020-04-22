@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 import numpy as np
+import time
 
 ##############################
 ###   Problem definiton    ###
 ##############################
 
 #Define start state
-s_row1=[1,2,3]
-s_row2=[4,5,6]
-s_row3=[7,0,8]
+s_row1=[1,0,3]
+s_row2=[4,2,6]
+s_row3=[7,5,8]
 start = np.array([s_row1,s_row2,s_row3])
 #Define Goal state
 g_row1=[1,2,3]
@@ -84,13 +85,16 @@ def dfsb(node_list,goal,depth,d_limit):
         new_nodes=successor(node_list)
         new_nodes=new_nodes.reshape(len(new_nodes)/9,3,3)
         
+        
 
     while (new_nodes.size!=0) == True and depth<d_limit:
         result=dfsb(new_nodes[0],goal,depth+1,d_limit)
+        n_c=n_c+len(new_nodes) #Counting nodes
         if result==1:
             print('Goal State reched:\n{}'.format(new_nodes[0]))
             print('Solution found at depth: {}'.format(d_limit))
-            print('Total nodes generated: {}'.format(n_c))
+            print('Total nodes generated (repeated nodes included): {}'.format(n_c))
+            print('Time taken to solve: {} sec'.format(time.clock()-s_t))
             quit()
         new_nodes=new_nodes[1:]
     return ('No solution found !')
@@ -107,5 +111,12 @@ def itd(node_list,goal):
         d_limit=d_limit+1
 
 n_c=0 #Intializing node counting variable
-#call main function with defined problem
+s_t=time.clock()
+
+#Call main function with defined problem
 itd(start,goal)
+
+#Tweaks to be done
+#1. Count nodes generated. No fun in counting this as same node will be generated...
+#... multiple times
+#2. Count time taken
