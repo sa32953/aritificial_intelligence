@@ -1,3 +1,3 @@
 # aritificial_intelligence
 
-basic algorithm codes on different aspects of AI
+basic algorithm codes on different Search algorithms in AI
