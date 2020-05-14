@@ -1,15 +1,14 @@
 #!/usr/bin/env python
 import numpy as np
 import time
-import bisect
 
 ##############################
 ###   Problem definiton    ###
 ##############################
 
 #Define start state
-s_row1=[4,1,3]
-s_row2=[0,2,6]
+s_row1=[1,0,3]
+s_row2=[4,2,6]
 s_row3=[7,5,8]
 start = np.array([s_row1,s_row2,s_row3])
 
@@ -32,8 +31,10 @@ new_nodes = []
 
 #Notes: 
 #1. All nodes generated in this process are saved in a list for finding the predecessor.
-#2. Each node is a list of of [x,y] type where x is the predecossor of y.
+#2. Each node is a list of of [x,y,z,w] type where x is the predecossor of y.
 #3. x and y are 2 dimensional numpy arrays.
+#4. z is the value of Heuristics cost function.
+#5. w is the depth value of said sucessor node.
 
 ##############################
 ###  Calculate Heuristics  ###
@@ -52,7 +53,8 @@ def h1(current_node,goal):
     
     for i in range(9):
         if current_node[i]!=target_node[i]:
-            h1=h1+1
+            if current_node[i] != 0:
+                h1=h1+1
 
     return h1
 
@@ -166,7 +168,7 @@ def a_star_h1(node_list,goal):
     
     f_c = 0 #Intializing depth counting variable
     n_c = 0 #Intializing node counting variable
-    
+    level=0
     while True:
         if node_list == []:
             result=0
@@ -185,19 +187,22 @@ def a_star_h1(node_list,goal):
             print('Solution found at depth {}'.format(level))
             print('Total nodes generated {}'.format(n_c))
             print('Time taken to solve: {} sec'.format(time.clock()-s_t))
+            print('Predecessor path is as follows:')
+            path = [node]
+            predecessor(node)
             return result
 
         ##Generating and Sorting the successor nodes
         folger=successor(node,level)
         
         #Appending node list
-        node_list = folger + node_list #This is wrong maybe, use bisection
+        node_list = folger + node_list #This is wrong (maybe), use bisection
 
         node_list= sorted(node_list, key= lambda x:x[2])
         
         f_c=f_c+1 #Counting depth of expansion
         n_c=n_c+len(folger) #Counting successor nodes generate
-        #print f_c
+        
         
 
 result=0
