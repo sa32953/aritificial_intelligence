@@ -8,3 +8,6 @@
     
 2. Machine Learning Classifiers
     - Perceptron
+    - kNN classifier (with and without normalizing)
+    - Some output results of C5.0
+    - Naives Text Classifier
