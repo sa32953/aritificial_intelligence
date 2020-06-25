@@ -1,0 +1,282 @@
+C5.0 [Release 2.11a]  	Tue Jun 23 11:39:45 2020
+--------------------
+
+    Options:
+	Application `lexmed'
+	10 boosting trials
+
+Read 316 cases (15 attributes) from lexmed.data
+
+-----  Trial 0:  -----
+
+Decision tree:
+
+Leukozyten > 10450:
+:...Erschuetterung_(0=nein__1=ja) = 1: 1 (102/9)
+:   Erschuetterung_(0=nein__1=ja) = 0:
+:   :...Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 1: 0 (4)
+:       Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 0:
+:       :...Diabetes_mellitus_(0=nein__1=ja) = 0: 1 (65/21)
+:           Diabetes_mellitus_(0=nein__1=ja) = 1: 0 (2)
+Leukozyten <= 10450:
+:...Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 1:
+    :...Schmerz_bei_Loslassmanoever_(0=nein__1=ja) = 0: 0 (2)
+    :   Schmerz_bei_Loslassmanoever_(0=nein__1=ja) = 1: 1 (11/1)
+    Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 0:
+    :...Lokale_Abwehrspannung_(0=nein__1=ja) = 0: 0 (81/13)
+        Lokale_Abwehrspannung_(0=nein__1=ja) = 1:
+        :...Schmerz_bei_Loslassmanoever_(0=nein__1=ja) = 0:
+            :...Alter <= 34: 0 (15/2)
+            :   Alter > 34: 1 (3)
+            Schmerz_bei_Loslassmanoever_(0=nein__1=ja) = 1:
+            :...Schmerz_Quadrant1_(0=nein__1=ja) = 0:
+                :...Leukozyten <= 7150: 0 (7)
+                :   Leukozyten > 7150: 1 (15/6)
+                Schmerz_Quadrant1_(0=nein__1=ja) = 1:
+                :...Alter <= 15: 1 (6)
+                    Alter > 15: 0 (3)
+
+-----  Trial 1:  -----
+
+Decision tree:
+
+Leukozyten > 15050: 1 (63.6/10.8)
+Leukozyten <= 15050:
+:...Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 1: 1 (26.4/8)
+    Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 0:
+    :...Erschuetterung_(0=nein__1=ja) = 1:
+        :...Leukozyten <= 9500: 0 (38.4/10)
+        :   Leukozyten > 9500: 1 (44.3/13.5)
+        Erschuetterung_(0=nein__1=ja) = 0:
+        :...Schmerz_Quadrant2_(0=nein__1=ja) = 1: 0 (4.4)
+            Schmerz_Quadrant2_(0=nein__1=ja) = 0:
+            :...Alter <= 13: 1 (32.7/12.8)
+                Alter > 13: 0 (106.2/29.9)
+
+-----  Trial 2:  -----
+
+Decision tree:
+
+Schmerz_bei_Loslassmanoever_(0=nein__1=ja) = 0:
+:...Schmerz_Quadrant3_(0=nein__1=ja) = 0: 0 (3.4)
+:   Schmerz_Quadrant3_(0=nein__1=ja) = 1:
+:   :...Schmerz_Quadrant1_(0=nein__1=ja) = 1: 1 (13.8/6)
+:       Schmerz_Quadrant1_(0=nein__1=ja) = 0:
+:       :...Alter <= 14: 1 (29.5/9.1)
+:           Alter > 14: 0 (87.8/25.9)
+Schmerz_bei_Loslassmanoever_(0=nein__1=ja) = 1:
+:...Geschlecht_(1=m___2=w) = 2: 1 (106.4/51.9)
+    Geschlecht_(1=m___2=w) = 1:
+    :...Leukozyten > 15100: 1 (23)
+        Leukozyten <= 15100:
+        :...Temp_re <= 38.1: 1 (39.4/8)
+            Temp_re > 38.1: 0 (12.7/2)
+
+-----  Trial 3:  -----
+
+Decision tree:
+
+Geschlecht_(1=m___2=w) = 1: 1 (111.1/41.2)
+Geschlecht_(1=m___2=w) = 2:
+:...Schmerz_Quadrant3_(0=nein__1=ja) = 0: 0 (2.4)
+    Schmerz_Quadrant3_(0=nein__1=ja) = 1:
+    :...Schmerz_Quadrant1_(0=nein__1=ja) = 1: 1 (25.3/10.3)
+        Schmerz_Quadrant1_(0=nein__1=ja) = 0:
+        :...Temp_re <= 36.9: 0 (28/3.9)
+            Temp_re > 36.9:
+            :...Leukozyten <= 14300: 0 (124.6/47.4)
+                Leukozyten > 14300: 1 (24.7/5.9)
+
+-----  Trial 4:  -----
+
+Decision tree:
+
+Lokale_Abwehrspannung_(0=nein__1=ja) = 0:
+:...Schmerz_Quadrant2_(0=nein__1=ja) = 1: 0 (9.3/0.5)
+:   Schmerz_Quadrant2_(0=nein__1=ja) = 0:
+:   :...Temp_ax <= 37.2: 0 (118.3/43.1)
+:       Temp_ax > 37.2: 1 (18.8/4.4)
+Lokale_Abwehrspannung_(0=nein__1=ja) = 1:
+:...Leukozyten > 12850: 1 (58.5/11.8)
+    Leukozyten <= 12850:
+    :...Temp_ax <= 36: 1 (5.8)
+        Temp_ax > 36:
+        :...Erschuetterung_(0=nein__1=ja) = 0: 0 (51.1/16)
+            Erschuetterung_(0=nein__1=ja) = 1:
+            :...Schmerz_Quadrant4_(0=nein__1=ja) = 0: 1 (38.1/15.7)
+                Schmerz_Quadrant4_(0=nein__1=ja) = 1: 0 (16.1/6.1)
+
+-----  Trial 5:  -----
+
+Decision tree:
+
+Leukozyten <= 9500: 0 (130.7/48.2)
+Leukozyten > 9500:
+:...Erschuetterung_(0=nein__1=ja) = 1: 1 (83.8/24.3)
+    Erschuetterung_(0=nein__1=ja) = 0:
+    :...Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 1: 0 (6.8)
+        Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 0:
+        :...Schmerz_Quadrant1_(0=nein__1=ja) = 0: 1 (88.5/35)
+            Schmerz_Quadrant1_(0=nein__1=ja) = 1: 0 (6.2/0.4)
+
+-----  Trial 6:  -----
+
+Decision tree:
+
+Leukozyten <= 7150: 0 (44.5/10)
+Leukozyten > 7150:
+:...Geschlecht_(1=m___2=w) = 1:
+    :...Generalisierte_Abwehrspannung_(0=nein__1=ja) = 1: 1 (4.7)
+    :   Generalisierte_Abwehrspannung_(0=nein__1=ja) = 0:
+    :   :...Schmerz_Quadrant1_(0=nein__1=ja) = 0: 1 (77.9/25.8)
+    :       Schmerz_Quadrant1_(0=nein__1=ja) = 1: 0 (14.2/3.7)
+    Geschlecht_(1=m___2=w) = 2:
+    :...Leukozyten <= 7850: 1 (18.4/1.9)
+        Leukozyten > 7850:
+        :...Erschuetterung_(0=nein__1=ja) = 0: 0 (91.9/35.3)
+            Erschuetterung_(0=nein__1=ja) = 1:
+            :...Temp_ax > 37.4: 1 (7.4)
+                Temp_ax <= 37.4:
+                :...Lokale_Abwehrspannung_(0=nein__1=ja) = 0: 0 (21.8/5.5)
+                    Lokale_Abwehrspannung_(0=nein__1=ja) = 1: 1 (32.2/11.6)
+
+-----  Trial 7:  -----
+
+Decision tree:
+
+Leukozyten > 15050: 1 (41.4/8.1)
+Leukozyten <= 15050:
+:...Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 1: 1 (30.2/11.6)
+    Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 0:
+    :...Leukozyten <= 7050: 0 (32.3/6.7)
+        Leukozyten > 7050:
+        :...Schmerz_bei_Loslassmanoever_(0=nein__1=ja) = 1: 1 (96.2/41.1)
+            Schmerz_bei_Loslassmanoever_(0=nein__1=ja) = 0:
+            :...Alter <= 14: 1 (32.2/9.7)
+                Alter > 14:
+                :...Schmerz_Quadrant1_(0=nein__1=ja) = 0: 0 (65.1/19.2)
+                    Schmerz_Quadrant1_(0=nein__1=ja) = 1: 1 (12.6/4)
+
+-----  Trial 8:  -----
+
+Decision tree:
+
+Lokale_Abwehrspannung_(0=nein__1=ja) = 0: 0 (140.1/53.2)
+Lokale_Abwehrspannung_(0=nein__1=ja) = 1:
+:...Leukozyten > 17750: 1 (12.5)
+    Leukozyten <= 17750:
+    :...Erschuetterung_(0=nein__1=ja) = 1: 1 (63.1/19.5)
+        Erschuetterung_(0=nein__1=ja) = 0:
+        :...Generalisierte_Abwehrspannung_(0=nein__1=ja) = 1: 0 (4.3)
+            Generalisierte_Abwehrspannung_(0=nein__1=ja) = 0:
+            :...Schmerz_Quadrant2_(0=nein__1=ja) = 1: 0 (2.3)
+                Schmerz_Quadrant2_(0=nein__1=ja) = 0:
+                :...Schmerz_Quadrant4_(0=nein__1=ja) = 1: 1 (9.9/2.5)
+                    Schmerz_Quadrant4_(0=nein__1=ja) = 0:
+                    :...Alter <= 41: 0 (59.3/18.7)
+                        Alter > 41: 1 (9.5/1.5)
+
+-----  Trial 9:  -----
+
+Decision tree:
+
+Leukozyten <= 10450:
+:...Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 1: 1 (15.6/3)
+:   Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 0:
+:   :...Schmerz_Quadrant1_(0=nein__1=ja) = 1: 0 (33.5/14.4)
+:       Schmerz_Quadrant1_(0=nein__1=ja) = 0:
+:       :...Leukozyten <= 7350: 0 (24.3)
+:           Leukozyten > 7350:
+:           :...Leukozyten <= 8650: 1 (32.6/13.3)
+:               Leukozyten > 8650: 0 (38.8/6.7)
+Leukozyten > 10450:
+:...Erschuetterung_(0=nein__1=ja) = 1: 1 (54.7/6.8)
+    Erschuetterung_(0=nein__1=ja) = 0:
+    :...Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 1: 0 (8)
+        Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja) = 0:
+        :...Schmerz_Quadrant2_(0=nein__1=ja) = 1: 0 (2.1)
+            Schmerz_Quadrant2_(0=nein__1=ja) = 0:
+            :...Alter <= 12: 1 (13.4)
+                Alter > 12:
+                :...Schmerz_Quadrant1_(0=nein__1=ja) = 1: 0 (3)
+                    Schmerz_Quadrant1_(0=nein__1=ja) = 0:
+                    :...Geschlecht_(1=m___2=w) = 1: 1 (20.8/4.8)
+                        Geschlecht_(1=m___2=w) = 2:
+                        :...Temp_re <= 37: 0 (6)
+                            Temp_re > 37:
+                            :...Schmerz_Quadrant4_(0=nein__1=ja) = 1: 1 (5.4)
+                                Schmerz_Quadrant4_(0=nein__1=ja) = 0:
+                                :...Leukozyten <= 15000: 0 (25.2/7.4)
+                                    Leukozyten > 15000: 1 (7.5)
+
+
+Evaluation on training data (316 cases):
+
+Trial	    Decision Tree   
+-----	  ----------------  
+	  Size      Errors  
+
+   0	    13   53(16.8%)
+   1	     7   72(22.8%)
+   2	     8   89(28.2%)
+   3	     6   97(30.7%)
+   4	     8   81(25.6%)
+   5	     5   76(24.1%)
+   6	     9   73(23.1%)
+   7	     7   70(22.2%)
+   8	     8   90(28.5%)
+   9	    15   65(20.6%)
+boost	         40(12.7%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	   121    15    (a): class 0
+	    25   155    (b): class 1
+
+
+	Attribute usage:
+
+	    100%  Geschlecht_(1=m___2=w)
+	    100%  Lokale_Abwehrspannung_(0=nein__1=ja)
+	    100%  Schmerz_bei_Loslassmanoever_(0=nein__1=ja)
+	    100%  Leukozyten
+	     99%  Erschuetterung_(0=nein__1=ja)
+	     97%  Schmerz_Quadrant1_(0=nein__1=ja)
+	     85%  Schmerz_bei_rektaler_Untersuchung_(0=nein__1=ja)
+	     83%  Temp_ax
+	     73%  Schmerz_Quadrant3_(0=nein__1=ja)
+	     69%  Temp_re
+	     65%  Schmerz_Quadrant2_(0=nein__1=ja)
+	     59%  Alter
+	     46%  Generalisierte_Abwehrspannung_(0=nein__1=ja)
+	     41%  Schmerz_Quadrant4_(0=nein__1=ja)
+	     24%  Diabetes_mellitus_(0=nein__1=ja)
+
+
+Evaluation on test data (157 cases):
+
+Trial	    Decision Tree   
+-----	  ----------------  
+	  Size      Errors  
+
+   0	    13   44(28.0%)
+   1	     7   52(33.1%)
+   2	     8   48(30.6%)
+   3	     6   52(33.1%)
+   4	     8   61(38.9%)
+   5	     5   47(29.9%)
+   6	     9   64(40.8%)
+   7	     7   47(29.9%)
+   8	     8   52(33.1%)
+   9	    15   63(40.1%)
+boost	         43(27.4%)   <<
+
+
+	   (a)   (b)    <-classified as
+	  ----  ----
+	    48    17    (a): class 0
+	    26    66    (b): class 1
+
+
+Time: 0.0 secs
